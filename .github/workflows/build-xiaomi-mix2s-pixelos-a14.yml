@@ -1,4 +1,4 @@
-name: Build Xiaomi Mix2s (PixelOS A14) (Kernel 4.19)
+name: Build Xiaomi Mix2s (PixelOS A14) (Kernel 4.9)
 
 on:
   workflow_call:
@@ -32,8 +32,8 @@ env:
   KERNELSU_SOURCE : "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/refs/heads/susfs-ksud/kernel/setup.sh"
   KERNELSU_BRANCH : "susfs-ksud"
 
-  KERNELSU_AUTO_GET : "false"
-  KERNELSU_AUTO_FORK : "rsuntk" # xxksu, rsuntk , next, resukisu and sukisu
+  KERNELSU_AUTO_GET : "true"
+  KERNELSU_AUTO_FORK : "resukisu" # xxksu, rsuntk , next, resukisu and sukisu
 
   SUSFS_ENABLE : true
   SUSFS_FIXED : true
@@ -66,7 +66,7 @@ env:
 
   HOOK_METHOD: "syscall" # Manual hook method ->  syscall.
 
-  KERNEL_PATCH: "false" # If your kernel version is <= 4.9, you have the option of enabling the patch to patch the kernel_write and kernel_read functions.
+  KERNEL_PATCH: "true" # If your kernel version is <= 4.9, you have the option of enabling the patch to patch the kernel_write and kernel_read functions.
 
   KPM_ENABLE: "false" # Anyone devices.
   KPM_INLINE: "false" # Only use it for SukiSU-Ultra.
@@ -81,7 +81,7 @@ env:
   GENERATE_DTB: "false" # if u kernel need DTB , but cannot auto generate it. (Only Anykernel3).
   GENERATE_CHIP: "qcom" # only supported for qcom and mediatek.
 
-  BUILD_DEBUGGER: "false" # Output build errors.
+  BUILD_DEBUGGER: "true" # Output build errors.
   SKIP_PATCH: "false" # Ignore errors found in Patch Debugger.
 
   BUILD_OTHER_CONFIG: "true" # Merge config files.
@@ -91,7 +91,7 @@ env:
 
 jobs:
   build-kernel:
-    name: Xiaomi Mix2s (PixelOS A14) (Kernel 4.19)
+    name: Xiaomi Mix2s (PixelOS A14) (Kernel 4.9)
     runs-on: ubuntu-22.04
     env:
       CCACHE_COMPILERCHECK: "%compiler% -dumpmachine; %compiler% -dumpversion"
