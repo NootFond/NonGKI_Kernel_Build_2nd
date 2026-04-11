@@ -12,8 +12,8 @@ env:
   CUSTOM_CMDS : "CLANG_TRIPLE=aarch64-linux-gnu-"
   EXTRA_CMDS : "LLVM=1 LLVM_IAS=1"
 
-  KERNEL_SOURCE : "https://github.com/duckyduckG/android_kernel_xiaomi_sdm845_419.git"
-  KERNEL_BRANCH : "lineage-23.2_xiaomi"
+  KERNEL_SOURCE : "https://github.com/crdroidandroid/android_kernel_xiaomi_sdm845.git"
+  KERNEL_BRANCH : "14.0"
 
   CLANG_SOURCE : "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/LLVM-19.1.7-Linux-X64.tar.xz"
   CLANG_BRANCH : ""
@@ -29,8 +29,8 @@ env:
   DEFCONFIG_ORIGIN_IMAGE: ""
   DEFCONFIG_FROM_BOOT: false
 
-  KERNELSU_SOURCE : "https://raw.githubusercontent.com/cyberc3dr/KernelSU/refs/heads/susfs-rksu-master/kernel/setup.sh"
-  KERNELSU_BRANCH : "susfs-rksu-master"
+  KERNELSU_SOURCE : "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/refs/heads/susfs-ksud/kernel/setup.sh"
+  KERNELSU_BRANCH : "susfs-ksud"
 
   KERNELSU_AUTO_GET : "false"
   KERNELSU_AUTO_FORK : "rsuntk" # xxksu, rsuntk , next, resukisu and sukisu
@@ -46,7 +46,7 @@ env:
   NEED_DTBO : false
   NEED_SAFE_DTBO : false
 
-  ROM_TEXT : "based_aosp_a16_4.19"
+  ROM_TEXT : "based_pixelos_a14"
 
   # Other env
   PYTHON_VERSION: "3" # Only 2(Ubuntu 22.04 and Ubuntu 20.04) or 3(Any OS Versions).
@@ -91,7 +91,7 @@ env:
 
 jobs:
   build-kernel:
-    name: Xiaomi Mix2s (Based AOSP A16) (Kernel 4.19)
+    name: Xiaomi Mix2s (Based PixelOS A14) (Kernel 4.19)
     runs-on: ubuntu-22.04
     env:
       CCACHE_COMPILERCHECK: "%compiler% -dumpmachine; %compiler% -dumpversion"
